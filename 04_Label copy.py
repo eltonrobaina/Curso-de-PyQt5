@@ -28,9 +28,11 @@ class Janela (QMainWindow):
         botao2.resize(150,80) # largura, altura
         botao2.setStyleSheet('QPushButton {background-color: #0FB328; font:bold; font-size:20px}')
         botao2.clicked.connect(self.botao2_click)
-        label_1 = QLabel(self)
-        label_1.setText("Ola Mundo")
-        label_1.move()
+        self.label_1 = QLabel(self)
+        self.label_1.setText("Aperte um Botao!!!")
+        self.label_1.move(50,50)
+        self.label_1.setStyleSheet('QLabel {font:bold; font-size:25px; color:"blue"}')
+        self.label_1.resize(400,25)
 
 
         #METODO
@@ -42,10 +44,14 @@ class Janela (QMainWindow):
         self.show()
 
     def botao1_click(self):
-        print('O Botao 1 foi clicado!!!!')
+        #print('O Botao 1 foi clicado!!!!')
+        self.label_1.setText("O Botao 1 foi clicado")
+        self.label_1.setStyleSheet('QLabel {font:bold; font-size:25px; color:"green"}')
     
     def botao2_click(self):
-        print('O Botao 2 foi clicado!!!!')
+        #print('O Botao 2 foi clicado!!!!')
+        self.label_1.setText("O Botao 2 foi clicado")
+        self.label_1.setStyleSheet('QLabel {font:bold; font-size:25px; color:"red"}')
 
 aplicacao = QApplication(sys.argv) # para que possamos mexer nos parametros os sistema (fechar janela)
 j = Janela()
